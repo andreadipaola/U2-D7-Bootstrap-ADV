@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Abbiamo bisogno di un sito web per un'agenzia di viaggi!
+
+In questa pagina aggiungerai destinazioni di posti che sogni di visitare in futuro.
+
+Il progetto non richiede alcuna customizzazione di CSS, dovrai crearlo interamente usando le classi di bootstrap, sia per quello che riguarda il layout che lo stile.
+
+
+Testa frequentemente il tuo lavoro nelle 3 principali risoluzioni (mobile, tablet, desktop) usando i developer tools del browser nella sezione emulazione device, per una maggiore precisione.
+
+Inizia utilizzando i componenti esistenti di Bootstrap 5 per creare la tua pagina (modificali all'occorrenza utilizzando le utility classes di bootstrap: colori, spazi, margini, dimensioni etc...)
+Usa container > row > col-* in questo ordine per ottenere un layout responsive perfetto.
+
+Esercizi:
+
+1) Implementa una navbar con questi elementi di menu:
+Home
+Saldi
+Welcome Summer
+Last Minute
+Recensioni
+
+Collegherai ogni sezione della pagina agli elementi del menu corrispondenti. 
+
+2) Aggiungi un logo alla navbar, un qualsiasi logo di agenzia di viaggi, anche inventata.
+
+3) Aggiungi una sezione introduttiva con il nome, il payoff dell'agenzia, 
+una breve descrizione in corsivo e una call-to-action (bottone) "Prenota ora" di colore azzurro chiaro e testo bianco e grassetto
+
+Il background della sezione sarà grigio chiaro e con bordi arrotondati e del padding generoso all'interno
+
+4) Implementa la sezione "Saldi". Qui mostrerai 4 destinazioni.
+
+In questa sezione dovranno esserci:
+
+4 card per destinazioni per linea a schermo grande - desktop (quattro sulla stessa linea)
+3 card per destinazioni per linea a schermo medio  - tablet  (una dovrà scomparire)
+2 card per destinazioni per linea a schermo piccolo - mobile (due per linea)
+
+le card avranno un bordo di 2px azzurro chiaro, il bottone azzurro chiaro e testo default
+
+5) Implementa la sezione "Welcome Summer". Qui mostrerai 6 destinazioni al tuo utente. (nessun bordo, ma stesso stile dei bottoni precedenti)
+
+In questa sezione dovranno esserci:
+
+6 card per destinazioni per linea a schermo extra large
+3 card per destinazioni per linea a schermo grande (desktop)
+2 card per destinazioni per linea a schermo medio (tablet)
+2 card per destinazioni per linea a schermo piccolo (mobile)
+
+6) Implementa la sezione "Offerta del giorno". Qui avrai:
+
+66% dello spazio dedicato all'immagine del luogo di destinazione
+33% dedicato al nome, date, prezzo e un badge con "best offer" come testo
+
+l'immagine avrà i bordi arrotondati e un'ombra leggera
+per il contenuto: il nome dovrà essere più grande del resto,
+le date dovranno essere formattate con font "monospace",
+il prezzo dovrà essere definito come "lead"
+e il badge sarà scuro
+
+
+7) Rendi invisibile la sezione "Offerta del giorno" su schermi piccoli.
+
+8) Aggiungi nella sezione "Welcome Summer" un'ombra grande ad ogni card.
+
+9) Crea una sezione "Last Minute", in cui mostrerai 6 immagini delle destinazioni last minute come rettangoli ombreggiati dai bordi arrotondati, senza testo. Rendile responsive come preferisci!
+
+10) Crea una sezione "Recensioni", dove l'utente potrà trovare alcuni feedback da utenti fittizi. 
+Piccola immagine tonda a sinistra con bordo 2px azzurro, nome utente e recensione a destra
+
+11) Crea un footer con le informazioni dell'agenzia e un bottone "Contattaci".
+
+
+
+EXTRAS
+
+12) Crea un bottone vicino ad ogni sezione per collassarla e riaprirla se premuto.
+
+13) Crea la possibilità di contare il numero di "viaggi" presenti sulla pagina e visualizzare il risultato in un alert.
+
+14) Crea un modale con un campo email e un messaggio.
+
+15) Quando l'utente cliccherà su "Contattaci", il modale dovrà essere visualizzato.
+
+16) Crea una funzione che aggiunga un badge con la scritta "HOT" su ognuna delle offerte "Welcome Summer" posizionato in alto a destra.
+
+17) Crea una funzione che rimuova tutte le "card" dalla pagina
+
+-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Agenzia Viaggi</title>
+  </head>
+
+  <body data-bs-theme="dark">
+    <!-- NAV START -->
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <svg
+            width="120px"
+            fill="white"
+            version="1.1"
+            x="0px"
+            y="0px"
+            viewBox="0 0 400 50"
+          >
+            <g class="letter_s">
+              <path
+                class="fill-white"
+                d="M37.5,30.5H10.9v-6.6h34.3c-0.9-2.8-3.8-5.4-8.9-5.4H11.4c-5.7,0-9,2.1-9,6.7v4.9c0,4,3.4,6.3,8.4,6.3h26.9v7H1.5
+                  c0.9,3.8,3.8,5.8,9,5.8h27.1c5.7,0,8.5-2.2,8.5-6.9v-4.9C46.1,33.1,42.8,30.8,37.5,30.5z"
+              ></path>
+            </g>
+            <g class="letter_p">
+              <path
+                class="fill-white"
+                d="M91.8,18.6H59v30.7h9.3V37.5h24.2c6.7,0,10.4-2.3,10.4-7.7v-3.4C102.8,21.4,98.6,18.6,91.8,18.6z M94.8,28.4
+                  c0,2.2-0.4,3.4-4,3.4H68.3l0.1-8h22c4,0,4.5,1.2,4.5,3.3V28.4z"
+              ></path>
+            </g>
+            <g class="letter_a">
+              <polygon
+                class="fill-white"
+                points="129.9,17.3 124.3,24.2 133.8,37.3 114,37.3 109.1,42.5 137.7,42.5 142.6,49.3 153.6,49.3 	"
+              ></polygon>
+            </g>
+            <g class="letter_c">
+              <path
+                class="fill-white"
+                d="M171.4,23.9h34.8c-0.9-3.6-4.4-5.4-9.4-5.4h-26c-4.5,0-8.8,1.8-8.8,6.7v17.2c0,4.9,4.3,6.7,8.8,6.7h26.3
+                  c6,0,8.1-1.7,9.1-5.8h-34.8V23.9z"
+              ></path>
+            </g>
+            <g class="letter_e">
+              <polygon
+                class="fill-white"
+                points="228.3,43.5 228.3,34.1 247,34.1 247,28.9 218.9,28.9 218.9,49.3 260.4,49.3 260.4,43.5 	"
+              ></polygon>
+              <rect
+                class="fill-white"
+                x="219.9"
+                y="18.6"
+                width="41.9"
+                height="5.4"
+              ></rect>
+            </g>
+            <g class="letter_x">
+              <path
+                class="fill-white"
+                d="M287.6,18.6H273l17.2,12.6c2.5-1.7,5.4-3.5,8-5L287.6,18.6z"
+              ></path>
+              <path
+                class="fill-white"
+                d="M308.8,34.3c-2.5,1.7-5,3.6-7.4,5.4l13,9.5h14.7L308.8,34.3z"
+              ></path>
+            </g>
+            <g class="letter_swoosh">
+              <path
+                class="fill-white"
+                d="M399,0.7c-80,4.6-117,38.8-125.3,46.9l-1.7,1.6h14.8C326.8,9.1,384.3,2,399,0.7L399,0.7z"
+              ></path>
+            </g>
+          </svg>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul
+            class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+            style="--bs-scroll-height: 100px"
+          >
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Saldi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Welcome Summer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Last Minute</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Recensioni</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Cerca posti da sogno"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-danger" type="submit">Cerca</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- NAV END -->
+
+    <!-- HERO START -->
+    <div class="container rounded p-5 mt-5 bg-body-secondary">
+      <div class="row">
+        <div class="col">
+          <h1 class="display-3">Space-X</h1>
+          <p class="fs-4 fst-italic mb-5">
+            Scopri le destinazioni più calde del momento!
+          </p>
+          <button class="btn btn-danger px-5">Prenota ora</button>
+        </div>
+      </div>
+    </div>
+    <!-- HERO END -->
+
+    <!-- SALDI SECTION START -->
+    <div id="saldi" class="container px-0 mt-4">
+      <div class="d-flex justify-content-between">
+        <h2 class="d-inline-block fs-4 mb-4">Saldi</h2>
+        <span>
+          <a
+            class="text-decoration-none text-secondary"
+            data-bs-toggle="collapse"
+            href="#saldi"
+            aria-expanded="false"
+            aria-controls="saldi"
+          >
+            Nascondi Sezione
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse px-0" id="saldi">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/mercury.jpg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Mercurio</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/earth.jpeg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Terra</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/mars.jpg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Marte</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/jupiter.jpg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Giove</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- SALDI SECTION END-->
+
+    <!-- WELCOME SUMMER SECTION START-->
+
+    <div id="welcome"class="container px-0 mt-4">
+      <div class="d-flex justify-content-between">
+        <h2 class="d-inline-block fs-4 mb-4">Welcome to Summer</h2>
+        <span>
+          <a
+            class="text-decoration-none text-secondary"
+            data-bs-toggle="collapse"
+            href="#welcome-summer"
+            aria-expanded="false"
+            aria-controls="welcome-summer"
+          >
+            Nascondi Sezione
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse" id="welcome-summer">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/earth.jpeg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Terra</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/eclipse.jpg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Sole</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/jupiter.jpeg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Giove</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/mars.jpg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Marte</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/mercury.jpg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Mercurio</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img
+                  src="assets/img/neptune.jpg"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nettuno</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-secondary">Prenota</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- WELCOME SUMMER SECTION END-->
+
+    <!-- OFFERTA DEL GIORNO SECTION END-->
+    <div class="container px-0 mt-4">
+      <h2 class="mb-3">Offerta del giorno</h2>
+      <div class="row">
+        <div class="col-8">
+          <img class="rounded img-fluid" src="assets/img/eclipse.jpg" alt="" />
+        </div>
+        <div class="col-4">
+          <p class="fs-1">Sole</p>
+          <p>15.01.2021-31.01.2021</p>
+          <p>Villa a partire da 500€, non fartele sfuggire!</p>
+          <span class="badge bg-secondary">Best offer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-0 mt-4">
+      <h2 class="mb-3">Last Minute</h2>
+      <div class="row row-cols-2">
+        <div class="col-2">
+          <img class="img-fluid rounded" src="assets/img/earth.jpeg" alt="" />
+        </div>
+        <div class="col-2">
+          <img class="img-fluid rounded" src="assets/img/eclipse.jpg" alt="" />
+        </div>
+        <div class="col-2">
+          <img class="img-fluid rounded" src="assets/img/jupiter.jpeg" alt="" />
+        </div>
+        <div class="col-2">
+          <img class="img-fluid rounded" src="assets/img/mars.jpg" alt="" />
+        </div>
+        <div class="col-2">
+          <img class="img-fluid rounded" src="assets/img/pluto.jpg" alt="" />
+        </div>
+        <div class="col-2">
+          <img class="img-fluid rounded" src="assets/img/saturn.jpeg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-0 mt-4">
+      <h2 class="mb-3">Dicono di noi</h2>
+      <div class="row">
+        <div class="col d-flex">
+          <img
+            class="img-thumbnail img-fluid rounded-circle"
+            src="assets/img/avatar.jpg"
+            alt=""
+          />
+          <div class="recensione">
+            <span class="fw-bold">Mark Zuckerberg</span>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo
+              amet odit nisi cumque consequatur molestias dolores deleniti.
+              Aspernatur nemo reiciendis quaerat, voluptatem vero numquam dicta!
+              Porro ut ab repudiandae harum! Odit dignissimos incidunt magnam
+              accusantium culpa quaerat quas cupiditate dolorum? Non vero
+              possimus fuga laboriosam dicta, id veniam nisi exercitationem,
+              ipsa aliquid impedit, sunt inventore est. Quod quae hic quo.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex">
+          <img
+            class="img-thumbnail img-fluid rounded-circle"
+            src="assets/img/avatar.jpg"
+            alt=""
+            class="img-fluid"
+          />
+          <div class="recensione">
+            <span class="fw-bold">Jeff Besos</span>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo
+              amet odit nisi cumque consequatur molestias dolores deleniti.
+              Aspernatur nemo reiciendis quaerat, voluptatem vero numquam dicta!
+              Porro ut ab repudiandae harum! Odit dignissimos incidunt magnam
+              accusantium culpa quaerat quas cupiditate dolorum? Non vero
+              possimus fuga laboriosam dicta, id veniam nisi exercitationem,
+              ipsa aliquid impedit, sunt inventore est. Quod quae hic quo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col d-flex">
+          <img
+            class="img-thumbnail img-fluid rounded-circle"
+            src="assets/img/avatar.jpg"
+            alt=""
+          />
+          <div class="recensione">
+            <span class="fw-bold">Elon Musk</span>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo
+              amet odit nisi cumque consequatur molestias dolores deleniti.
+              Aspernatur nemo reiciendis quaerat, voluptatem vero numquam dicta!
+              Porro ut ab repudiandae harum! Odit dignissimos incidunt magnam
+              accusantium culpa quaerat quas cupiditate dolorum? Non vero
+              possimus fuga laboriosam dicta, id veniam nisi exercitationem,
+              ipsa aliquid impedit, sunt inventore est. Quod quae hic quo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
