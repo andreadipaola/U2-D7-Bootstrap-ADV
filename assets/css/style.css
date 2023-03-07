@@ -36,3 +36,9 @@ body {
   #welcome .card-img-top {
     max-height: 109px;
   }
+
+  #last-minute img{
+    max-height: 133px;
+    object-fit: cover;
+    width: 100%;
+  }
